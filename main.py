@@ -94,7 +94,7 @@ while ball.hit_bottom == False:
     time.sleep(0.01) 
 
     if ball.score == 300: 
-      print("YOU WIN")  
+      print(P1 + "WIN")  
       break  
 
       
