@@ -1,10 +1,22 @@
-
+import pygame 
 from tkinter import *
 import random
 import time
+import sys, time
+import os
 
+def sprint(str):
+    for c in str + '\n':
+        sys.stdout.write(c)
+        sys.stdout.flush()
+        time.sleep(3. / 90)
 
-P1 = input("player 1 name: ") 
+#user input name
+      
+P1 = input("player name: ") 
+print() 
+sprint("Your mission is to defend the base. Move the arrow keys to move the paddle")
+print() 
 
 class Ball:
 
@@ -74,30 +86,74 @@ class Paddle:
 # Create window and canvas to draw on
 tk = Tk()
 tk.title("Ball Game")
-canvas = Canvas(tk, width=500, height=400, bd=0, bg='black')
+canvas = Canvas(tk, width=500, height=400, bd=0, bg='aquamarine')
 canvas.pack()
 label = canvas.create_text(5, 5, anchor=NW, text="Score: 0")
 tk.update()
 #######################
-paddle = Paddle(canvas, 'aquamarine')
-ball = Ball(canvas, 'aquamarine', 25, paddle)
+paddle = Paddle(canvas, 'black')
+ball = Ball(canvas, 'black', 25, paddle)
 
 # Animation loop
 while ball.hit_bottom == False:
     ball.draw()
     paddle.draw()
     canvas.itemconfig(label,
-                      fill='aquamarine',
-                      text="Score: " + str(ball.score))
+                      fill='black',
+                      text="Score: " + str(ball.score))  
+#code prints a statement and breaks the loop
+    while ball.hit_bottom == True:
+     sprint("Pathetic, not even close, because of your failure our base had been raided") 
+     break
     tk.update_idletasks()
     tk.update()
     time.sleep(0.01) 
+#code prints a statement and breaks the loop 
+    if ball.score == 100: 
+      sprint("Thank you " + P1 + ". You have succesfully defended the base")  
+      break
 
-    if ball.score == 300: 
-      print(P1 + "WIN")  
-      break  
+
+
 
       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
