@@ -5,6 +5,36 @@ import time
 import sys, time
 import os
 
+#Initialize all pygame functionality
+pygame.init() 
+
+#grab elements from the pygame interface
+infoObject = pygame.display.Info()
+
+#create the display surface to grab the size of the pygame screen
+display_surface = pygame.display.set_mode((infoObject.current_w, infoObject.current_h))
+
+#function to clear the screen
+def clear():
+   os.system('clear') #on Linux System
+
+#function to show an image in the pygame screen
+#IN:title-the window name, filename-the picture to display
+def pushImage(title,fileName):
+  #create the window with the title given
+  pygame.display.set_caption(title) 
+
+  #convert the file to a png for pygame to use
+  image = pygame.image.load(fileName).convert()
+
+  #scale the image to the pygame window size
+  image = pygame.transform.scale(image, (infoObject.current_w, infoObject.current_h))
+
+  #push the image out to the pygame screen
+  display_surface.blit(image, (0, 0)) 
+
+  #refresh the screen with the new image
+  pygame.display.update() 
 def sprint(str):
     for c in str + '\n':
         sys.stdout.write(c)
@@ -54,7 +84,6 @@ class Ball:
         return False
 
 
-# Define paddle properties and functions
 
 
 class Paddle:
@@ -81,8 +110,9 @@ class Paddle:
 
     def move_right(self, evt):
         self.xspeed = 5
+      
 
-
+     
 # Create window and canvas to draw on
 tk = Tk()
 tk.title("Ball Game")
@@ -101,9 +131,9 @@ while ball.hit_bottom == False:
     canvas.itemconfig(label,
                       fill='black',
                       text="Score: " + str(ball.score))  
-#code prints a statement and breaks the loop
-    while ball.hit_bottom == True:
-     sprint("Pathetic, not even close, because of your failure our base had been raided") 
+    while ball.hit_bottom == True:  
+     pushImage("reaction","download.jpg") 
+     sprint("Pathetic, not even close, because of your failure our base had been raided")  
      break
     tk.update_idletasks()
     tk.update()
