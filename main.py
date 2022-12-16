@@ -41,8 +41,66 @@ def sprint(str):
         sys.stdout.flush()
         time.sleep(3. / 90)
 
-#user input name
-      
+sprint("insert the password (clue 'Metamorphosis')") 
+while True: 
+ fir_num = int(input("First number: ")) 
+ if fir_num == 1:   
+   pushImage("reaction2", "download.png")
+   break   
+ else: 
+   pushImage("reaction", "download.jfif")
+   sprint("Wrong") 
+ 
+while True: 
+ sec_num = int(input("Second number: "))
+ if sec_num == 7:  
+    pushImage("reaction2", "download.png")
+    break   
+ else: 
+    pushImage("reaction", "download.jfif")
+    sprint("Wrong")  
+  
+while True: 
+ thi_num = int(input("Third number: "))
+ if thi_num == 7:  
+    pushImage("reaction2", "download.png")
+    break   
+ else: 
+    pushImage("reaction", "download.jfif")
+    sprint("Wrong") 
+
+while True: 
+ fou_num = int(input("Fourth number: "))
+ if fou_num == 0:  
+    pushImage("reaction2", "download.png")
+    break   
+ else: 
+    pushImage("reaction", "download.jfif")
+    sprint("Wrong") 
+
+while True: 
+ fif_num = int(input("Fifth number: "))
+ if fif_num == 1: 
+    pushImage("reaction2", "download.png")
+    break   
+ else: 
+    pushImage("reaction", "download.jfif")
+    sprint("Wrong")  
+
+while True: 
+ six_num = int(input("Sixth number: "))
+ if six_num == 3: 
+    pushImage("reaction2", "download.png")
+    break   
+ else: 
+    pushImage("reaction", "download.jfif")
+    sprint("Wrong")       
+
+
+
+
+   
+#user input name     
 P1 = input("player name: ") 
 print() 
 sprint("Your mission is to defend the base. Move the arrow keys to move the paddle")
@@ -111,11 +169,12 @@ class Paddle:
     def move_right(self, evt):
         self.xspeed = 5
       
+ 
 
-     
+
 # Create window and canvas to draw on
 tk = Tk()
-tk.title("Ball Game")
+tk.title("Defend the Base")
 canvas = Canvas(tk, width=500, height=400, bd=0, bg='aquamarine')
 canvas.pack()
 label = canvas.create_text(5, 5, anchor=NW, text="Score: 0")
@@ -131,8 +190,7 @@ while ball.hit_bottom == False:
     canvas.itemconfig(label,
                       fill='black',
                       text="Score: " + str(ball.score))  
-    while ball.hit_bottom == True:  
-     pushImage("reaction","download.jpg") 
+    while ball.hit_bottom == True:   
      sprint("Pathetic, not even close, because of your failure our base had been raided")  
      break
     tk.update_idletasks()
@@ -142,48 +200,3 @@ while ball.hit_bottom == False:
     if ball.score == 100: 
       sprint("Thank you " + P1 + ". You have succesfully defended the base")  
       break
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
