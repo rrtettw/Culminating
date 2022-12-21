@@ -95,7 +95,7 @@ while True:
  else: 
     pushImage("reaction", "download.jfif")
     sprint("Wrong")       
-
+pushImage("color","aqua.png")
 
 
 
